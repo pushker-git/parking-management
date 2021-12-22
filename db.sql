@@ -1,3 +1,13 @@
+CREATE TABLE `parkinglots` IF NOT EXISTS (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `level` int DEFAULT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
 CREATE TABLE `parkinglevels` IF NOT EXISTS (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `parkinglotId` bigint NOT NULL,
@@ -10,16 +20,6 @@ CREATE TABLE `parkinglevels` IF NOT EXISTS (
   CONSTRAINT `parkinglevels_ibfk_1` FOREIGN KEY (`parkinglotId`) REFERENCES `parkinglots` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
-
-CREATE TABLE `parkinglots` IF NOT EXISTS (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `level` int DEFAULT NULL,
-  `createdAt` datetime NOT NULL,
-  `updatedAt` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB;
 
 CREATE TABLE `parkingspots` IF NOT EXISTS (
   `id` bigint NOT NULL AUTO_INCREMENT,
